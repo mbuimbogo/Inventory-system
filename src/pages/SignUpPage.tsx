@@ -75,7 +75,7 @@ const SignUp = () => {
             Password
           </label>
           <input
-            type="text"
+            type="password"
             id="password"
             name="password"
             value={accountDetails.password}
