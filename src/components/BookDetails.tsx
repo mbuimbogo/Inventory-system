@@ -37,7 +37,7 @@ const BookDetails: React.FC<BookDetailsProps> = ({ book, onUpdate }) => {
   };
 
   return (
-    <div className="max-w-md mx-auto absolute p-4 bg-gray-400 inset-0 h-fit mt-12 shadow-md rounded-md z-10">
+    <div className="max-w-md mx-auto absolute p-4 bg-gray-400 inset-0 h-fit mt-6 shadow-md rounded-md z-10">
       <h2 className="text-xl font-semi-bold mb-4"> Edit Book Details</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
