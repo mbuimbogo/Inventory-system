@@ -7,7 +7,7 @@ interface Book {
   genre: string;
   isbn: string;
   quantity: number;
-    // status: 'Pending' | 'Verified by Storekeeper' | 'Verified by Librarian';
+    status: 'Pending' | 'Verified by Storekeeper' | 'Verified by Librarian';
 
 }
 
@@ -23,6 +23,7 @@ const BookForm: React.FC<AddBookProps> = ({ onAddBook }) => {
     genre: "",
     isbn: "",
     quantity: 0,
+    status: 'Pending'
   });
 
   const handleInputChange = (
@@ -44,11 +45,12 @@ const BookForm: React.FC<AddBookProps> = ({ onAddBook }) => {
       genre: "",
       isbn: "",
       quantity: 0,
+      status: 'Pending'
     });
   };
 
   return (
-    <div className="max-w-md mx-auto mt-6 p-4 bg-white shadow-md rounded-md">
+    <div className="max-w-md mx-auto mt-6 p-4 shadow-md rounded-md bg-gray-200">
       <h2 className="text-xl font-semi-bold mb-4"> Add New Book Details</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">

@@ -11,6 +11,7 @@ interface Book {
   genre: string;
   isbn: string;
   quantity: number;
+  status: 'Pending' | 'Verified by Storekeeper' | 'Verified by Librarian';
 }
 
 const HomePage: React.FC = () => {
@@ -66,6 +67,27 @@ const handleDeleteBook = () => {
 
     setShowConfirmationModal(false);
   };
+
+  const handleStorekeeperApproval = (bookToApprove: Book) => {
+    setBooks((prevBooks) => {
+      const updatedBooks = prevBooks.map((book) =>
+        book.isbn === bookToApprove.isbn ? { ...book, status: 'Verified by Storekeeper' } : book
+      );
+      localStorage.setItem('books', JSON.stringify(updatedBooks));
+      return updatedBooks;
+    });
+  };
+  
+  const handleLibrarianApproval = (bookToApprove: Book) => {
+    setBooks((prevBooks) => {
+      const updatedBooks = prevBooks.map((book) =>
+        book.isbn === bookToApprove.isbn ? { ...book, status: 'Verified by Librarian' } : book
+      );
+      localStorage.setItem('books', JSON.stringify(updatedBooks));
+      return updatedBooks;
+    });
+  };
+  
   
 
   return (
@@ -77,7 +99,10 @@ const handleDeleteBook = () => {
         onEditBook={(book)=>handleUpdateBook(book)}
         onDeleteBook={(book)=> {setBookToDelete(book);
         setShowConfirmationModal(true);
+        
         }}
+        onStorekeeperApproval={handleStorekeeperApproval}
+        onLibrarianApproval={handleLibrarianApproval}
       />
       {selectedBook && (
         <BookDetails book={selectedBook} onUpdate={handleUpdateBook} />
