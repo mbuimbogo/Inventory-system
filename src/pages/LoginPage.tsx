@@ -52,6 +52,7 @@ const LoginPage = () => {
               value={accountDetails.fullName}
               onChange={handleInputChange}
               className="w-full p-2 border rounded-md"
+              required
             />
           </div>
 
@@ -66,6 +67,7 @@ const LoginPage = () => {
               value={accountDetails.email}
               onChange={handleInputChange}
               className="w-full p-2 border rounded-md"
+              required
             />
           </div>
           <div className="mb-4">
@@ -82,6 +84,7 @@ const LoginPage = () => {
               value={accountDetails.password}
               onChange={handleInputChange}
               className="w-full p-2 border rounded-md"
+              required
             />
           </div>
 
